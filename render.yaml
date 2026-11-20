@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: zhijiao-yinghang-api
+    runtime: docker
+    plan: starter
+    disk:
+      name: demo-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:////var/data/zhijiao_yinghang.db
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
